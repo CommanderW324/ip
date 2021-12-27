@@ -1,8 +1,9 @@
+package duke.Task;
 public class Task {
     private String taskDescription;
     private boolean isDone;
 
-    Task(String description, boolean isDone) {
+    public Task(String description, boolean isDone) {
         this.taskDescription = description;
         this.isDone = isDone;
     }
@@ -10,6 +11,11 @@ public class Task {
     public void markAsDone() {
         this.isDone = true;
     }
+
+    public boolean contains(String keyword) {
+        return this.taskDescription.contains(keyword);
+    }
+
     @Override
     public String toString() {
         String done = isDone ? "X" : " ";
