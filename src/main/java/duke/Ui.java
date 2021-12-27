@@ -30,9 +30,11 @@ public class Ui {
         userInput = scanner.nextLine();
         return userInput;
     }
+
     public static void displayQuitMessage() {
         System.out.println("Duke : Bye, Hope to see you again soon !");
     }
+
     public static void displayTaskList(TaskList tasks) {
         System.out.println(tasks.formattedToString());
         Ui.displayLineBreak();
