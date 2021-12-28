@@ -3,13 +3,18 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import duke.Task.*;
 
+/**
+ * Class to handle parsing of user input into Tasks / Commands
+ */
 public class Parser {
-    private String userInput;
 
-    Parser(String userInput) {
-        this.userInput = userInput;
-    }
+    /** Method to handle userInput and modify the specified task list
+     *
+     * @param userInput, string of user input
+     * @param tasks task list to be modified accordingly
+     */
     public static void handleInput(String userInput, TaskList tasks) {
+        assert userInput != null : "should have user Input";
         if (userInput.equals("bye")) {
             Ui.displayQuitMessage();
             return;
@@ -64,7 +69,17 @@ public class Parser {
         }
     }
 
+    /**
+     * Returns a Task Object that is parsed from the string of user task Input.
+     * The method might return an exception when the user task input is invalid.
+     *
+     * @param userInput, the string containing a task
+     * @return task object based on the string input
+     * @throws DukeException
+     */
+
     public static Task handleTaskInput(String userInput) throws DukeException{
+        assert userInput != null : "should have user Input";
         if(userInput.startsWith("todo")) {
             int id = userInput.indexOf("todo") + 4;
             String task = userInput.substring(id);
